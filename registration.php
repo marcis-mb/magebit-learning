@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marcispumpurs
- * Date: 21.25.4
- * Time: 10:22
- */
+
+use \Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/Magebit/learning', __DIR__);
