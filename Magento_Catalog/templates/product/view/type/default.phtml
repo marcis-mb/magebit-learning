@@ -15,7 +15,7 @@
                 <?= $block->escapeHtml(__('In stock')) ?>
             </span>
         </div>
-        <div>
+        <div class="stock-amount">
             <span>
                 <?= $_product->getQuantityAndStockStatus()['qty']; ?>
                 <?= $block->escapeHtml(__('Items available')) ?>
