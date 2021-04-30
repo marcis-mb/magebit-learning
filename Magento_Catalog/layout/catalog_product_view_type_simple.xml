@@ -18,9 +18,36 @@
         <referenceBlock name="product.info.addto" remove="true"/>
         <referenceBlock name="product.info.details" remove="true"/>
 
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Html\Links" name="footer_links.custom" before="footer_links">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">footer links custom-links</argument>
+                </arguments>
+                <block class="Magento\Framework\View\Element\Html\Link\Current" name="about-us">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">About Us</argument>
+                        <argument name="path" xsi:type="string">about</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-service">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Customer Service</argument>
+                        <argument name="path" xsi:type="string">service</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <!--<move element="privacy-policy-link" destination="footer_links.column2"/>-->
+        <move element="search-term-popular-link" destination="footer_links" after="privacy-policy-link"/>
+        <!--<move element="sales-guest-form-link" destination="footer_links.column2"/>-->
+        <!--<move element="catalog-search-advanced-link" destination="footer_links.column2"/>-->
+        <!--<move element="contact-us-link" destination="footer_links.column2"/>-->
+
         <move element="product.info.overview" destination="product.attributes"/>
         <move element="product.attributes" destination="product.info.form.content" before="product.info.addtocart"/>
         <move element="product.info.upsell" destination="product.info.form.content" after="product.info.addtocart"/>
+
 
     </body>
 </page>
