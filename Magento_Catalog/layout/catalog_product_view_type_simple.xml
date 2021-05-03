@@ -8,12 +8,17 @@
             <container name="product.info.simple.extra" after="product.info.simple" as="product_type_data_extra" label="Product Extra Info"/>
         </referenceContainer>
 
-        <referenceBlock name="product.info.addtocart">
-            <block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.simple" as="product_type_data" template="Magento_Catalog::product/view/type/default.phtml"/>
+        <referenceBlock name="product.info.addtocart"  template="Magento_Catalog::product/view/simple/addtocart.phtml">
+            <block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.simple" as="product_type_data" template="Magento_Catalog::product/view/type/simple.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Magebit\Learning\ViewModel\Product\ProductQuantity</argument>
+                </arguments>
+            </block>
         </referenceBlock>
 
         <referenceBlock name="product.info.upsell" template="Magento_Catalog::product/list/items_simple.phtml"/>
-        <referenceBlock name="catalog.product.related" template="Magento_Catalog::product/list/items_simple.phtml"/>
+        <referenceBlock name="catalog.product.related" template="Magento_Catalog::product/list/items_simple.phtml">
+        </referenceBlock>
 
         <referenceBlock name="product.info.addto" remove="true"/>
         <referenceBlock name="product.info.details" remove="true"/>
@@ -37,6 +42,15 @@
                 </block>
             </block>
         </referenceContainer>
+
+        <referenceBlock name="product.info.description" template="Magento_Catalog::product/view/simple/attribute.phtml"/>
+        <referenceBlock name="product.info.sku" template="Magento_Catalog::product/view/simple/attribute.phtml"/>
+        <referenceBlock name="product.attributes" template="Magento_Catalog::product/view/simple/attributes.phtml">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Magebit\Learning\ViewModel\Product\ProductAttributes</argument>
+            </arguments>
+        </referenceBlock>
+
 
         <!--<move element="privacy-policy-link" destination="footer_links.column2"/>-->
         <move element="search-term-popular-link" destination="footer_links" after="privacy-policy-link"/>

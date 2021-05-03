@@ -5,7 +5,10 @@
  */
 ?>
 <?php /* @var $block \Magento\Catalog\Block\Product\View\AbstractView */ ?>
-<?php $_product = $block->getProduct() ?>
+<?php
+$_product = $block->getProduct();
+$viewModel = $block->getViewModel();
+?>
 
 <?php if ($block->displayProductStockStatus()) : ?>
     <?php if ($_product->isAvailable()) : ?>
@@ -17,7 +20,7 @@
         </div>
         <div class="stock-amount">
             <span>
-                <?= $_product->getQuantityAndStockStatus()['qty']; ?>
+                <?= $viewModel->getQty($_product) ?>
                 <?= $block->escapeHtml(__('Items available')) ?>
             </span>
         </div>
@@ -27,4 +30,3 @@
         </div>
     <?php endif; ?>
 <?php endif; ?>
-

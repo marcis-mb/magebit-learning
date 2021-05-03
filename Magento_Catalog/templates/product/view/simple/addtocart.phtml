@@ -13,37 +13,37 @@
         <div class="fieldset">
             <?php if ($block->shouldRenderQuantity()): ?>
                 <div class="field qty">
-<!--                    <label class="label" for="qty"><span>--><?php ///* @escapeNotVerified */ echo __('Quantity:')
-                    /// ?><!--</span></label>-->
                     <div id="custom-qty" class="control" data-bind="scope: 'qty-counter'">
                         <!-- ko template: getTemplate() --><!-- /ko -->
                         <script type="text/x-magento-init">
-                    {
-                        "#custom-qty": {
-                            "Magento_Ui/js/core/app": {
-                                "components": {
-                                    "qty-counter": {
-                                        "component": "qty-counter",
-                                        "config": {
-                                            "qty": <?php echo $block->getProductDefaultQty() * 1 ?>,
-                                            "dataValidate": <?php echo json_encode($block->getQuantityValidators()) ?>
+                        {
+                            "#custom-qty": {
+                                "Magento_Ui/js/core/app": {
+                                    "components": {
+                                        "qty-counter": {
+                                            "component": "qty-counter",
+                                            "config": {
+                                                "qty": <?php echo $block->getProductDefaultQty() * 1 ?>,
+                                                "dataValidate": <?php echo json_encode($block->getQuantityValidators()) ?>
+                                            }
                                         }
-                                    }
-                                 }
+                                     }
+                                }
                             }
                         }
-                    }
-                </script>
+                        </script>
                     </div>
                     <?= $block->getChildHtml('', true) ?>
                 </div>
             <?php endif; ?>
             <div class="actions">
                 <button type="submit"
-                        title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                        title="<?php /* @escapeNotVerified */
+                        echo $buttonTitle ?>"
                         class="action primary tocart"
                         id="product-addtocart-button">
-                    <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+                    <span><?php /* @escapeNotVerified */
+                        echo $buttonTitle ?></span>
                 </button>
             </div>
         </div>
@@ -55,5 +55,6 @@
             "Magento_Catalog/js/validate-product": {}
         }
     }
+
 
 </script>
