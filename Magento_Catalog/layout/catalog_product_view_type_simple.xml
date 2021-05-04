@@ -9,6 +9,9 @@
         </referenceContainer>
 
         <referenceBlock name="product.info.addtocart"  template="Magento_Catalog::product/view/simple/addtocart.phtml">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Magebit\Learning\ViewModel\Product\ProductQuantity</argument>
+            </arguments>
             <block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.simple" as="product_type_data" template="Magento_Catalog::product/view/type/simple.phtml">
                 <arguments>
                     <argument name="view_model" xsi:type="object">Magebit\Learning\ViewModel\Product\ProductQuantity</argument>

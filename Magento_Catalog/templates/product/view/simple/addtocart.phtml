@@ -5,6 +5,8 @@
  */
 
 /** @var $block \Magento\Catalog\Block\Product\View */
+
+$viewModel = $block->getViewModel();
 ?>
 <?php $_product = $block->getProduct(); ?>
 <?php $buttonTitle = __('Add to Cart'); ?>
@@ -15,23 +17,6 @@
                 <div class="field qty">
                     <div id="custom-qty" class="control" data-bind="scope: 'qty-counter'">
                         <!-- ko template: getTemplate() --><!-- /ko -->
-                        <script type="text/x-magento-init">
-                        {
-                            "#custom-qty": {
-                                "Magento_Ui/js/core/app": {
-                                    "components": {
-                                        "qty-counter": {
-                                            "component": "qty-counter",
-                                            "config": {
-                                                "qty": <?php echo $block->getProductDefaultQty() * 1 ?>,
-                                                "dataValidate": <?php echo json_encode($block->getQuantityValidators()) ?>
-                                            }
-                                        }
-                                     }
-                                }
-                            }
-                        }
-                        </script>
                     </div>
                     <?= $block->getChildHtml('', true) ?>
                 </div>
@@ -58,3 +43,20 @@
 
 
 </script>
+<script type="text/x-magento-init">
+    {
+        "#custom-qty": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "qty-counter": {
+                        "component": "qty-counter",
+                        "config": {
+                            "qty": <?php echo $block->getProductDefaultQty() * 1 ?>,
+                            "max": <?= $viewModel->getQty($_product) ?>
+                        }
+                    }
+                 }
+            }
+        }
+    }
+ </script>

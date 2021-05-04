@@ -5,7 +5,7 @@
         </button>
     </div>
     <div class="input-group__addon_qty">
-    <input data-bind="value: qty(), attr: {'data-validate': getDataValidator(), 'title': $t('Qty')}"
+    <input data-bind="value: qty, event:{keyup: changeQty(qty())}, valueUpdate: 'afterkeydown'"
            type="number"
            name="qty"
            id="qty"
@@ -17,3 +17,5 @@
         </button>
     </div>
 </div>
+
+<!---->
