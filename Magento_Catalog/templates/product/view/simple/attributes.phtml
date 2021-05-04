@@ -23,7 +23,7 @@
     <div class="additional-attributes-wrapper table-wrapper">
         <ul class="attribute-list">
             <?php foreach ($attributes as $attribute) : ?>
-                <li class="attribute-label"><span><strong><?= $attribute['label'] ?>:</strong><?= $attribute['data'] ?> </span></li>
+                <li class="attribute-label"><span><strong><?= $attribute['label'] ?>: </strong><?= $attribute['data'] ?> </span></li>
             <?php endforeach; ?>
         </ul>
         <?= $block->getChildHtml('', true) ?>
